@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Conditionals from "./Conditionals";
+import List from "./List";
+import Hook from "./Hook";
+import "./App.css";
+import Effect from "./Effect";
+import Form from "./Form";
+const App = () => {
+  const handleClick = (name) => {
+    console.log(`Hello ${name}`);
+  };
 
-function App() {
+  const [toggle, setToggle] = React.useState(true);
+
+  const changeTheme = () => {
+    setToggle(!toggle);
+  };
+
+  const styles = {
+    backgroundColor: toggle ? "white" : "black",
+    color: toggle ? "black" : "white",
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={styles}>
+      <button onClick={changeTheme}>Theme</button>
+      <p>Hello</p>
+      <button onClick={() => handleClick("Atharva")}>Click</button>
+      <Conditionals />
+      <List />
+      <Hook />
+      <Form />
     </div>
   );
-}
+};
 
 export default App;
