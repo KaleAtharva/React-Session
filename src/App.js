@@ -30,6 +30,7 @@ const App = () => {
       <List />
       <Hook />
       <Form />
+      <Effect/>
     </div>
   );
 };
